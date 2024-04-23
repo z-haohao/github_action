@@ -3,11 +3,11 @@ name: 测试python项目
 on: push
 
 jobs: 
-  python-install: 
+  python-install:
     name: python工作环境
     runs-on: ubuntu-latest
-    steps: 
-    name: 读取仓库内容😁
-    - uses: actions/checkout@v4 
-    name: 执行运行
-    - run: python hello.py
+    steps:
+      - name: 读取仓库内容😁
+        uses: actions/checkout@v4 
+      - name: 执行运行
+        run: python hello.py

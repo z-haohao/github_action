@@ -1,10 +1,12 @@
 name: 测试python项目
+
 on: push
 
-jobs:
-  python-install:
-    name: python 工作环境
+jobs: 
+  python-install: 
+    name: python工作环境
     runs-on: ubuntu-latest
+
     steps: 
     name: 读取仓库内容😁
     - uses: actions/checkout@v4 

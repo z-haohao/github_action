@@ -1,11 +1,8 @@
 on: push
+
 jobs:
-  job1:
+  python-install:
     runs-on: ubuntu-latest
     steps: 
-    - run: pwd
-    - run: ls
-  job2:
-    runs-on: windows-latest
-    steps: 
-    - run: node --version
+    - uses: actions/checkout@v4 
+    - run: python hello.py

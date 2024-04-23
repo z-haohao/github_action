@@ -1,4 +1,4 @@
-name: 测试python项目
+name: 打包python项目镜像,推送到dockerhub
 
 on: push
 
@@ -8,6 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 读取仓库内容😁
-        uses: actions/checkout@v4 
-      - name: 执行运行
-        run: python hello.py
+        uses: actions/checkout@v4
+
+      - name: 登录dockerHUb
+        uses: docker/login-action@v3
+        with:
+          username: ${{DOCKER_HUB_USER}}
+          passowrd: ${{DOCKER_HUB_PASSWORD}}
+
+       
+      - name: 构建并推动到docker hub
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: zhuhaohao/github_action:latest
